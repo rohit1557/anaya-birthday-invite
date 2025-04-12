@@ -17,10 +17,24 @@
   </style>
 </head>
 <body class="bg-pink-100 text-center">
-  <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-smile.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <!-- Replace your <audio> tag with this button and script -->
+<button id="playMusicBtn" class="bg-purple-600 text-white px-4 py-2 rounded mt-4 hover:bg-purple-700">
+  🎵 Play Music
+</button>
+
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-smile.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  document.getElementById("playMusicBtn").addEventListener("click", function () {
+    const music = document.getElementById("bgMusic");
+    music.play();
+    this.style.display = 'none'; // Hide button after playing
+  });
+</script>
+
 
   <div class="max-w-2xl mx-auto py-10 px-4">
     <img src="anaya.jpg" alt="Anaya" class="rounded-xl shadow-lg mb-6 mx-auto w-60 h-60 object-cover" />
