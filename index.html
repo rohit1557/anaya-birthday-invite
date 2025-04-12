@@ -53,6 +53,17 @@
       <p><strong>Time:</strong> 5:00 PM – 8:00 PM</p>
       <p><strong>Venue:</strong> 311/29 East Street, Granville</p>
     </div>
+    <div class="mt-6 flex flex-col items-center space-y-3">
+  <div class="flex space-x-4">
+    <button id="playMusicBtn" class="bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600">▶️ Play</button>
+    <button id="pauseMusicBtn" class="bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600">⏸️ Pause</button>
+    <button id="stopMusicBtn" class="bg-red-500 text-white px-4 py-2 rounded shadow hover:bg-red-600">⏹️ Stop</button>
+  </div>
+  <label class="flex items-center space-x-2 mt-2">
+    <input type="range" min="0" max="1" step="0.01" value="1" id="volumeSlider" />
+    <span class="text-sm text-gray-700">Volume</span>
+  </label>
+</div>
 
     <div class="mt-6 flex flex-col items-center space-y-3">
   <div class="flex space-x-4">
@@ -187,5 +198,29 @@
       });
     });
   </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const music = document.getElementById("bg-music");
+    const playBtn = document.getElementById("playMusicBtn");
+    const pauseBtn = document.getElementById("pauseMusicBtn");
+    const stopBtn = document.getElementById("stopMusicBtn");
+    const volumeSlider = document.getElementById("volumeSlider");
+
+    if (music && playBtn && pauseBtn && stopBtn && volumeSlider) {
+      playBtn.addEventListener("click", () => music.play());
+      pauseBtn.addEventListener("click", () => music.pause());
+      stopBtn.addEventListener("click", () => {
+        music.pause();
+        music.currentTime = 0;
+      });
+      volumeSlider.addEventListener("input", () => {
+        music.volume = volumeSlider.value;
+      });
+    } else {
+      console.warn("Music controls not found.");
+    }
+  });
+</script>
+
 </body>
 </html>
