@@ -98,8 +98,12 @@
             <input type="number" name="kids" min="0" required class="w-full p-2 mt-1 border rounded" />
           </label>
         </div>
-        <label class="block mb-2">Dietary Requirements:
-          <input type="text" name="diet" class="w-full p-2 mt-1 border rounded" />
+        <label class="block mb-2">Meal Preference:
+  <select name="meal_preference" required class="w-full p-2 mt-1 border rounded">
+    <option value="" disabled selected>Select an option</option>
+    <option value="Vegetarian">Vegetarian</option>
+    <option value="Non-Vegetarian">Non-Vegetarian</option>
+  </select>
         </label>
         <label class="block mb-2">Message for Anaya:
           <textarea name="message" class="w-full p-2 mt-1 border rounded"></textarea>
